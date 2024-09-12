@@ -1,5 +1,3 @@
-
-
 from pprint import pprint
 
 
@@ -16,26 +14,23 @@ class Product:
 
 class Shop:
 
-    def __init__(self, __file_name='products.txt'):
-        self.__file_name = __file_name
+    __file_name = 'products.txt'
 
     def get_products(self):
         file = open(self.__file_name, 'r')
-        q = file.read()
+        f = file.read()
         file.close()
-        print(f'{q}')
+        return f
 
     def add(self, *products):
-        for product in products:
-            s = (str(product))
-            file = open(self.__file_name, 'r')
-            f = file.read()
-            file.close()
-            if s in f:
+        for i in products:
+            s = (str(i))
+            self.get_products()
+            if s in self.get_products():
                 print(f'Продукт {s} уже есть в магазине.')
             else:
                 file = open(self.__file_name, 'a')
-                file.write(f'\n{s}')
+                file.write(f'/n{s}')
                 file.close()
 
 
