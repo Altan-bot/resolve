@@ -9,7 +9,6 @@ def write_words(word_count, file_name):
             sleep(0.1)
     print(f"Завершилась запись в файл {file_name}")
 
-# Запуск функций последовательно
 time_start = time()
 write_words(10, 'example1.txt')
 write_words(30, 'example2.txt')
@@ -18,7 +17,6 @@ write_words(100, 'example4.txt')
 time_end = time()
 print(f"Работа функций {timedelta(seconds=time_end - time_start)}")
 
-# Запуск функций в потоках
 time_start = time()
 threads = [
     threading.Thread(target=write_words, args=(10, 'example5.txt')),
